@@ -1,0 +1,25 @@
+{% extends 'sbapp/base.html' %}
+
+{% block content %}
+    <div class="item">
+
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'item_edit' pk=item.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'item_remove' pk=item.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+        {% endif %}
+
+        <h2>{{ item.item_name }}</h2>
+        {% if item.posted_date %}
+            <div class="date">
+                {{ item.posted_date }}
+            </div>
+
+      {% endif %}
+        <p>posted by, {{item.user}}</p>
+        <p>seller {{item.seller_name}}</p>
+        <P> contact {{item.phone}} to buy this</p>
+        <h2>₹ {{item.item_cost}}</h2>
+        <img src="{{ item.item_image.url }}">
+        <p>{{ item.item_details|linebreaksbr }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'sbapp/base.html' %}
+
+{% block content %}
+    {% for item in items %}
+        <div class="item">
+            <div class="col-sm-4 col-lg-2">
+                <div class="thumbnail">
+                    <img src="{{ item.item_image.url }}">
+                </div>
+            </div>
+            <h2><a href="{% url 'item_detail' pk=item.pk %}">{{ item.item_name }}</a></h2>
+            <div class="date">
+                <p>posted on: {{ item.posted_date }}</p>
+            </div>
+           seller: {{item.seller_name}}
+            <p>₹ {{item.item_cost}}</p>
+
+        </div>
+    {% endfor %}
+{% endblock %}
