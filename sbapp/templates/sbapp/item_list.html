@@ -8,11 +8,10 @@
                     <img src="{{ item.item_image.url }}">
                 </div>
             </div>
-            <h2><a href="{% url 'item_detail' pk=item.pk %}">{{ item.item_name }}</a></h2>
+            <h3><a href="{% url 'item_detail' pk=item.pk %}">{{ item.item_name }}</a></h3>
             <div class="date">
                 <p>posted on: {{ item.posted_date }}</p>
             </div>
-           seller: {{item.seller_name}}
             <p>₹ {{item.item_cost}}</p>
 
         </div>
